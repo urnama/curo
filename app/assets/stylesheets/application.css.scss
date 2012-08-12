@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+@import "compass/reset";
+@import "compass/css3";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic);
+
+$fs-normal: 16px;
+$fs-large: round(1.2*$fs-normal);
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { 
+  font-family: "Open Sans", sans-serif;
+  font-size: $fs-normal;
+  
+}
+
+html { 
+  height: 100%;
+  @include background(image-url("back.jpg") center top no-repeat);
+  body { 
+    overflow-y: scroll;
+  }
+}
+
+
+#page { 
+  background: rgba(#FFF, 0.6);
+  max-width: 960px;
+  border: 1px solid rgba(black, 0.2);
+  @include box-shadow(0 0 $fs-normal rgba(0,0,0,0.2));
+  margin: $fs-normal auto;
+  padding: $fs-normal;
+}
+
+#menu { 
+  @include background(rgba(red, 0.2));
+  padding: $fs-normal;
+  text-align: center;  
+}
+
+[data-pjax-container], [data-clone] {
+  position: relative;
+}
+[data-pjax-containers]:hover {
+  @include transition-property(opacity);
+  @include transition-duration(1s);
+  @include transition-timing-function(ease-in-out);
+  opacity: 0.5;
+}
+
+[data-pjax-container].disappearing {
+  @include transition-property(opacity, top);
+  @include transition-duration(5s);
+  @include transition-timing-function(ease-in-out);
+  opacity: 0.5;
+  top: -1000px;
+}
+
+.apps { 
+  padding: $fs-normal 0;
+  .app { 
+    @include inline-block;
+    margin: 0 round($fs-normal/2) $fs-normal;
+    text-decoration: none;
+    .image { 
+      $size: 160px;
+      height: $size;
+      width: $size;
+      @include border-radius(8px);
+      background: image-url("app-160.png") no-repeat;
+    }
+    .title { 
+      text-decoration: none;
+      color: change-color(blue, $lightness: 30%);
+      @include text-shadow(1px 1px 1px rgba(0,0,0,0.2));
+      font-weight: bold;
+      text-align: center;
+      font-size: $fs-large;
+      padding: round($fs-normal/4);
+    }
+  }
+}
+
+.dashboard { 
+  .item { 
+    @include inline-block;
+    width: 300px;
+    $border-color: rgba(black, 0.4);
+    border: 1px solid $border-color;
+    @include box-shadow(0 0 $fs-normal rgba(black, 0.1));
+    margin: $fs-normal/2 $fs-normal/3;
+    .title { 
+      color: white;
+      line-height: $fs-normal*1.4; 
+      vertical-align: middle;
+      background: $border-color;
+      padding: round($fs-normal/4) round($fs-normal/2);
+      @include text-shadow(0 0 3px rgba(black, 0.5));
+      font-weight: bold;
+      text-align: center;
+      font-size: $fs-large;
+    }
+    .content { 
+      background: rgba(white, 0.5);
+      padding: 8px;
+      height: 200px;
+    }
+  }
+}
