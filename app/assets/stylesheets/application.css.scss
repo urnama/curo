@@ -15,7 +15,7 @@
 @import "compass/css3";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic);
 
-$fs-normal: 16px;
+$fs-normal: 13px;
 $fs-large: round(1.2*$fs-normal);
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { 
@@ -26,7 +26,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 html { 
   height: 100%;
-  @include background(image-url("back.jpg") center top no-repeat);
+/*  @include background(image-url("back.jpg") center center repeat-x fixed);*/
+  @include background(#FFF linear-gradient(top, darken(#FFF, 13%), #FFF) repeat-x);
   body { 
     overflow-y: scroll;
   }
@@ -68,6 +69,7 @@ html {
 
 .apps { 
   padding: $fs-normal 0;
+  text-align: center;
   .app { 
     @include inline-block;
     margin: 0 round($fs-normal/2) $fs-normal;
@@ -92,6 +94,7 @@ html {
 }
 
 .dashboard { 
+  text-align: center;
   .item { 
     @include inline-block;
     width: 300px;
@@ -111,7 +114,7 @@ html {
       font-size: $fs-large;
     }
     .content { 
-      background: rgba(white, 0.5);
+      background: rgba(white, 0.8);
       padding: 8px;
       height: 200px;
     }
